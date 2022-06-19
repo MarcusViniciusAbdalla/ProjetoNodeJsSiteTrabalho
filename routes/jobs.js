@@ -3,6 +3,10 @@ const router  = express.Router();
 const Job     = require('../models/Job');
 const bodyParser = require('body-parser');
 
+router.get('/test' , (req , res) => {
+    res.send('Deu certo');
+});
+
 //add job via post
 router.post('/add' , (req , res ) => {
 
