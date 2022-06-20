@@ -104,7 +104,7 @@
     border: 1px solid #CCC;
     padding: 15px;
     color: #212529;
-    height: 25px;
+    height: 120px;
 }
 
 #job-list .list-group-item p {
@@ -128,7 +128,7 @@
     border-radius: 50%;
     background-color: #FFF;
     position: absolute;
-    left: -40px;
+    left: -100px;
     top: calc(50% - 40px); 
 }
 
