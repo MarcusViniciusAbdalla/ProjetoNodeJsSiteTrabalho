@@ -5,6 +5,8 @@
 
 
 /* nav */
+
+
 .navbar {
     padding: 1rem;
     border-bottom: 1px solid #ccc;
@@ -18,9 +20,16 @@
     margin: 0 10px;
 }
 
-.navbar-expand-lg .navbar-nav .nav-link {
+.navbar-nav {
     padding: 10px 25px;
     font-weight: bold;
+    margin-left: 70%;
+
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 10px 25px;
+    font-weight: bold; 
 }
 
 .navbar .nav-item .btn {
