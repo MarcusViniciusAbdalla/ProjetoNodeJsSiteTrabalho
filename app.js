@@ -1,10 +1,12 @@
 const express = require('express');
-const exphbs = require('express-handlebars');
+const exphbs     = require('express-handlebars');
 const app = express();
 const path = require('path');
 const db = require('./db/connection');
 const bodyParser = require('body-parser');
-
+const Job        = require('./models/Job');
+const Sequelize  = require('sequelize');
+const Op         = Sequelize.Op;
 
 const PORT = 3000;
 
@@ -37,6 +39,7 @@ db
 
 //routes
 app.get('/' , (req, res)=>{
+    Job.findAll
     res.render('index');
 });
 
