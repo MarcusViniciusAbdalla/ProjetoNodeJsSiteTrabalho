@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // handle bars
 app.set('views' , path.join(__dirname, 'views'));
-app.engine('handlebars' , exphbs({defaultLayout: 'main'}));
+app.engine('handlebars' , exphbs.engine({defaultLayout: 'main'}));
 app.set('view engine' , 'handlebars');
 
 
@@ -63,7 +63,7 @@ app.get('/' , (req, res)=>{
         .then(jobs =>{
             console.log(search);
             console.log(search);
-            
+
             res.render('index' , {
                 jobs , search
             });
