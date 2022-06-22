@@ -39,16 +39,35 @@ db
 
 //routes
 app.get('/' , (req, res)=>{
-    Job.findAll({order: [
-        ['createAd' ,'DESC']
-    ]})
-    .then(jobs =>{
 
-        res.render('index' , {
-            jobs
-        });
-    });
+    let search = req.body.job;
+    let query = '%'+ seach +'%';
 
+    if(!search) {
+        Job.findAll({order: [
+            ['createAd' ,'DESC']
+        ]})
+        .then(jobs =>{
+    
+            res.render('index' , {
+                jobs
+            });
+        })
+        .catch(err => console.log(err));
+    } else {
+        Job.findAll({
+            where:{title: {[Op.like]: search}},
+            order: [
+            ['createAd' ,'DESC']
+        ]})
+        .then(jobs =>{
+    
+            res.render('index' , {
+                jobs , search
+            });
+        })
+        .catch(err => console.log(err));
+    }
     
 });
 
