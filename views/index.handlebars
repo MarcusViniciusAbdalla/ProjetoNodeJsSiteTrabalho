@@ -3,7 +3,7 @@
     <p id="main-subtitle" class="text-center">Não somos movidos por ambição. Somos movidos por um propósito.Promover
         encontros de valor entre profissionais e empresas é o que guia toda a estratégia, ações e pessoas da Vagas.
     </p>
-    <form id="search-form" class="form-inline" action="">
+    <form id="search-form" class="form-inline" action="/">
         <div class="form-group col-md-10">
             <input type="text" class="form-control" id="job" name="job" placeholder="Digite a vaga que está buscando">
         </div>
@@ -17,7 +17,11 @@
     <div id="jobs-container" class="container">
         <div class="row">
             <div class="col-md-12">
+                {{#if search}}
+                <h2 id="job-list-title"Buscando Vagas que contem: {{search}}</h2>
+                {{else}}
                 <h2 id="job-list-title">Veja Nossas Vagas Em Destaque</h2>
+                {{/if}}
                 <ul id="job-list" class="list-group">
                     {{#each jobs}}
                     <li class="list-group-item{{#if dataValues.new_job}} new-job{{/if}}">
