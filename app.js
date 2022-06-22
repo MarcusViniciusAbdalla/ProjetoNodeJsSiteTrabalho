@@ -40,8 +40,8 @@ db
 //routes
 app.get('/' , (req, res)=>{
 
-    let search = req.body.job;
-    let query = '%'+ seach +'%';
+    let search = req.query.job;
+    let query = '%'+ search +'%';
 
     if(!search) {
         Job.findAll({order: [
@@ -56,12 +56,14 @@ app.get('/' , (req, res)=>{
         .catch(err => console.log(err));
     } else {
         Job.findAll({
-            where:{title: {[Op.like]: search}},
+            where:{title: {[Op.like]: query}},
             order: [
             ['createAd' ,'DESC']
         ]})
         .then(jobs =>{
-    
+            console.log(search);
+            console.log(search);
+            
             res.render('index' , {
                 jobs , search
             });
