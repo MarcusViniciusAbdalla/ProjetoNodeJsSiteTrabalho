@@ -39,8 +39,17 @@ db
 
 //routes
 app.get('/' , (req, res)=>{
-    Job.findAll
-    res.render('index');
+    Job.findAll({order: [
+        ['createAd' ,'DESC']
+    ]})
+    .then(jobs =>{
+
+        res.render('index' , {
+            jobs
+        });
+    });
+
+    
 });
 
 //jobs routes
