@@ -45,7 +45,7 @@ app.get('/' , (req, res)=>{
 
     if(!search) {
         Job.findAll({order: [
-            ['createAd' ,'DESC']
+            ['createdAt' ,'DESC']
         ]})
         .then(jobs =>{
     
@@ -58,7 +58,7 @@ app.get('/' , (req, res)=>{
         Job.findAll({
             where:{title: {[Op.like]: query}},
             order: [
-            ['createAd' ,'DESC']
+            ['createdAt' ,'DESC']
         ]})
         .then(jobs =>{
             console.log(search);
